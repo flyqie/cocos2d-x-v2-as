@@ -1,5 +1,5 @@
 APP_STL := gnustl_static
-APP_CPPFLAGS := -frtti -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -fsigned-char -fexceptions #-std=c++11
+APP_CPPFLAGS := -frtti -DCOCOS2D_JAVASCRIPT=1 -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -fsigned-char -fexceptions #-std=c++11
 APP_LDFLAGS := -latomic
 #APP_ALLOW_MISSING_DEPS=true
 

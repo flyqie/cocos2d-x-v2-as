@@ -192,6 +192,8 @@ bool CCGLProgram::compileShader(GLuint * shader, GLenum type, const GLchar* sour
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 && CC_TARGET_PLATFORM != CC_PLATFORM_LINUX && CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 #if CC_TARGET_PLATFORM == CC_PLATFORM_NACL
         "precision highp float;\n"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+        "#version 100\n precision mediump float;\n precision mediump int;\n"
 #else
         (type == GL_VERTEX_SHADER ? "precision highp float;\n" : "precision mediump float;\n"),
 #endif

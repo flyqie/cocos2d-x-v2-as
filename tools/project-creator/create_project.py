@@ -78,6 +78,7 @@ def checkParams(context):
         context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-cpp"
         platforms_list = ["ios",
                           "android",
+                          "android-studio",
                           "win32",
                           "winrt",
                           "wp8",
@@ -104,6 +105,7 @@ def checkParams(context):
         context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-js"
         platforms_list = ["ios",
                           "android",
+                          "android-studio",
                           "win32"]
 # end of checkParams(context) function
 
