@@ -10,6 +10,7 @@ Android Studio版本: [3.0.1](https://redirector.gvt1.com/edgedl/android/studio/
 3. 删除原有eclipse项目 
 4. 删除js项目支持(arm64迁移过于复杂) 
 
+Thanks: c0i/cocos2d-x226-android-studio , c0i/cocos2d-x-v2 
 
 cocos2d-x
 =========
