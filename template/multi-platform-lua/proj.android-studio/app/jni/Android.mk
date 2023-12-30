@@ -25,7 +25,7 @@ LOCAL_SRC_FILES := hellolua/main.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes
 
-LOCAL_STATIC_LIBRARIES := curl_static_prebuilt
+LOCAL_STATIC_LIBRARIES := cocos_curl_static
 
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static

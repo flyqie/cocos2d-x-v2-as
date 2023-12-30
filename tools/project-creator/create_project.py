@@ -28,10 +28,10 @@ def dumpUsage():
     print "Options:"
     print "  -project   PROJECT_NAME          Project name, for example: MyGame"
     print "  -package   PACKAGE_NAME          Package name, for example: com.MyCompany.MyAwesomeGame"
-    print "  -language  PROGRAMING_LANGUAGE   Major programing lanauge you want to used, should be [cpp | lua | javascript]"
+    print "  -language  PROGRAMING_LANGUAGE   Major programing lanauge you want to used, should be [cpp | lua]"
     print ""
     print "Sample 1: ./create_project.py -project MyGame -package com.MyCompany.AwesomeGame"
-    print "Sample 2: ./create_project.py -project MyGame -package com.MyCompany.AwesomeGame -language javascript"
+    print "Sample 2: ./create_project.py -project MyGame -package com.MyCompany.AwesomeGame -language lua"
     print ""
 
 def checkParams(context):
@@ -77,7 +77,6 @@ def checkParams(context):
         context["src_package_name"] = "org.cocos2dx.hellocpp"
         context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-cpp"
         platforms_list = ["ios",
-                          "android",
                           "android-studio",
                           "win32",
                           "winrt",
@@ -93,20 +92,11 @@ def checkParams(context):
         context["src_package_name"] = "org.cocos2dx.hellolua"
         context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-lua"
         platforms_list = ["ios",
-                          "android",
                           "android-studio",
                           "win32",
                           "blackberry",
                           "linux",
                           "marmalade"]
-    elif ("javascript" == context["language"]):
-        context["src_project_name"] = "HelloJavascript"
-        context["src_package_name"] = "org.cocos2dx.hellojavascript"
-        context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-js"
-        platforms_list = ["ios",
-                          "android",
-                          "android-studio",
-                          "win32"]
 # end of checkParams(context) function
 
 def replaceString(filepath, src_string, dst_string):
@@ -140,18 +130,6 @@ def processPlatformProjects(platform):
     # read josn config file or the current platform
     f = open("%s.json" % platform)
     data = json.load(f)
-
-    # rename package path, like "org.cocos2dx.hello" to "com.company.game". This is a special process for android
-    if (platform == "android"):
-        src_pkg = context["src_package_name"].split('.')
-        dst_pkg = context["dst_package_name"].split('.')
-        os.rename(proj_path + "src/" + src_pkg[0],
-                  proj_path + "src/" + dst_pkg[0])
-        os.rename(proj_path + "src/" + dst_pkg[0] + "/" + src_pkg[1],
-                  proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1])
-        os.rename(proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + src_pkg[2],
-                  proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2])
-        java_package_path = dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2]
         
     # rename package path, like "org.cocos2dx.hello" to "com.company.game". This is a special process for android-studio
     if (platform == "android-studio"):
@@ -211,7 +189,7 @@ checkParams(context)
 # import pprint
 # pprint.pprint(context)
 
-# copy "lauguage"(cpp/lua/javascript) platform.proj into cocos2d-x/projects/<project_name>/folder
+# copy "lauguage"(cpp/lua) platform.proj into cocos2d-x/projects/<project_name>/folder
 if (os.path.exists(context["dst_project_path"]) == True):
     print "Error:" + context["dst_project_path"] + " folder is already existing"
     print "Please remove the old project or choose a new PROJECT_NAME in -project parameter"

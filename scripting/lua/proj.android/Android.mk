@@ -14,7 +14,7 @@ LOCAL_SRC_FILES := ../cocos2dx_support/CCLuaBridge.cpp \
           ../cocos2dx_support/LuaCocoStudio.cpp \
           ../cocos2dx_support/CCBProxy.cpp \
           ../cocos2dx_support/Lua_extensions_CCB.cpp \
-          ../cocos2dx_support/Lua_web_socket.cpp \
+          ../cocos2dx_support/Lua_web_socket.android.cpp \
           ../cocos2dx_support/lua_cocos2dx_manual.cpp \
           ../cocos2dx_support/lua_cocos2dx_extensions_manual.cpp \
           ../cocos2dx_support/lua_cocos2dx_cocostudio_manual.cpp \
@@ -26,14 +26,14 @@ LOCAL_SRC_FILES := ../cocos2dx_support/CCLuaBridge.cpp \
           ../cocos2dx_support/tolua_fix.c \
           ../xxtea/xxtea.cpp
           
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../luajit/include \
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../luajit/android_include \
                            $(LOCAL_PATH)/../tolua \
                            $(LOCAL_PATH)/../cocos2dx_support \
                            $(LOCAL_PATH)/../xxtea
           
           
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/ \
-                    $(LOCAL_PATH)/../luajit/include \
+                    $(LOCAL_PATH)/../luajit/android_include \
                     $(LOCAL_PATH)/../tolua \
                     $(LOCAL_PATH)/../../../cocos2dx \
                     $(LOCAL_PATH)/../../../cocos2dx/include \
