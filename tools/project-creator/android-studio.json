@@ -1,0 +1,15 @@
+{
+    "rename":               ["app/src/PACKAGE_PATH/PROJECT_NAME.java"],
+    "remove":               ["app/assets",
+                             "app/bin",
+						 	 "app/jniLibs",
+						 	 "app/gen",
+						 	 "app/obj"],
+    "replace_package_name": ["app/AndroidManifest.xml",
+							 "app/src/PACKAGE_PATH/PROJECT_NAME.java",
+							 "app/build.gradle"],
+    "replace_project_name": ["app/AndroidManifest.xml",
+						     "settings.gradle",
+						     "app/res/values/strings.xml",
+						     "app/src/PACKAGE_PATH/PROJECT_NAME.java"]
+}

@@ -93,6 +93,7 @@ def checkParams(context):
         context["src_project_path"] = os.getcwd() + "/../../template/multi-platform-lua"
         platforms_list = ["ios",
                           "android",
+                          "android-studio",
                           "win32",
                           "blackberry",
                           "linux",
@@ -148,6 +149,18 @@ def processPlatformProjects(platform):
                   proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1])
         os.rename(proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + src_pkg[2],
                   proj_path + "src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2])
+        java_package_path = dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2]
+        
+    # rename package path, like "org.cocos2dx.hello" to "com.company.game". This is a special process for android-studio
+    if (platform == "android-studio"):
+        src_pkg = context["src_package_name"].split('.')
+        dst_pkg = context["dst_package_name"].split('.')
+        os.rename(proj_path + "app/src/" + src_pkg[0],
+                  proj_path + "app/src/" + dst_pkg[0])
+        os.rename(proj_path + "app/src/" + dst_pkg[0] + "/" + src_pkg[1],
+                  proj_path + "app/src/" + dst_pkg[0] + "/" + dst_pkg[1])
+        os.rename(proj_path + "app/src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + src_pkg[2],
+                  proj_path + "app/src/" + dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2])
         java_package_path = dst_pkg[0] + "/" + dst_pkg[1] + "/" + dst_pkg[2]
 
     # rename files and folders
