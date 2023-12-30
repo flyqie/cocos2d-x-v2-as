@@ -1,3 +1,16 @@
+cocos2d-x-2.2.6 as+arm64
+=========
+
+NDK版本: [r13](https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip) 
+Android Studio版本: [3.0.1](https://redirector.gvt1.com/edgedl/android/studio/install/3.0.1.0/android-studio-ide-171.4443003-mac.dmg) 
+变更: 
+
+1. 二进制升级到cocos2d-x-3.17.2.zip以支持arm64 
+2. 增加Android Studio项目 
+3. 删除原有eclipse项目 
+4. 删除js项目支持(arm64迁移过于复杂) 
+
+
 cocos2d-x
 =========
 
